@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node src/main.js"
+    "start": "node src/main.js",
+    "start:08_12_2024": "node src/lessons/lesson_08_12_2024_work_with_html/index.js"
   },
   "keywords": [],
   "author": "",
