@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/main.js",
-    "start:08_12_2024": "node src/lessons/lesson_08_12_2024_work_with_html/index.js"
+    "start:08_12_2024": "node src/lessons/08_12_2024_work_with_html/index.js"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +12,8 @@
   "description": "",
   "devDependencies": {
     "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7"
   }
 }
