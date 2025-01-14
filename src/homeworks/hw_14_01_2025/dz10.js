@@ -1,6 +1,12 @@
 //10) Создайте массив с числами. Прибавьте к каждому элементу массива число 3. Выведите на экран измененный массив.
-let numMass = [1, 2, 3, 4, 5]
+let massSomeNum = [1, 2, 3, 4, 5]
 
-let result = numMass.join('3')
+// 1-ый способ
+for (let i = 0; i < massSomeNum.length; i++) {
+    massSomeNum[i] = massSomeNum[i] + 3;
+}
 
-console.log(result)
+// 2-ой способ
+
+
+console.log(massSomeNum.map(el => el + 3))
