@@ -12,10 +12,11 @@ const countryAndCurrencies = new Map([
 function getCurrency(country) {
     if (countryAndCurrencies.has(country)) {
         return countryAndCurrencies.get(country);
-    } else {
-        return "Валюта не найдена";
     }
+    return "Валюта не найдена";
+
 }
+
 console.log(getCurrency("Russia"));
 console.log(getCurrency("United States"));
 console.log(getCurrency("Germany"));

@@ -14,4 +14,6 @@ cityPopulation.set("Екатеринбург", 1493749);
 
 cityPopulation.delete("Санкт-Петербург")
 
+cityPopulation.get("Новосибирск")
+
 console.log(cityPopulation);
