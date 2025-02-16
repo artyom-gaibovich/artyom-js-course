@@ -3,7 +3,6 @@
 //function greet(name) {
     //return "Привет, " + name + "!";
 //}
-const greet = (name) =>{
-    return `Hello ${name}`
-}
+const greet = (name) => `Hello ${name}`
+
 console.log(greet("Vovan"))

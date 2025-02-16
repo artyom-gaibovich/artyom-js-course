@@ -4,7 +4,11 @@
 - bind()
 - стрелочную функцию
 Добавь метод delayedGreet, который через setTimeout выводит приветствие через 1 секунду, не теряя контекст.*/
+const user2 = {
+    name: "John",
+    age: 32,
 
+}
 const user = {
     name: "Иван",
     age: 25,
@@ -19,6 +23,8 @@ greetFunc();
 
 const greetFuncBind = user.greet.bind(user);
 greetFuncBind();
+
+user2.greet = greetFunc;
 
 const greetFuncArrow = () => user.greet();
 greetFuncArrow();
