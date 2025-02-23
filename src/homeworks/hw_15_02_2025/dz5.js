@@ -8,12 +8,12 @@
 */
 
 function generatePublicKey(x, g, p){
-    return ;
+    return 2**x%p ;
 }
 
 const p = 11
 const g = 2
-const x = Math.random()
+const x = Math.round(Math.random()*1000)
 
 console.log("Публичный ключ:", generatePublicKey(x, g, p))
 console.log("Секретный ключ (x):", x);
