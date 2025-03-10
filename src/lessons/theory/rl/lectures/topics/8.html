@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../../../css/page.css">
+		<link rel="stylesheet" type="text/css" href="../../../css/katex.css">
+		<title></title>
+	</head>
+	<body>
+		<div class="page">
+			<div class="sidebar">
+				<a id="nextPage">
+					<img src="../../../css/icons/forward.svg" title="Далее">
+				</a>
+				<a id="prevPage">
+					<img src="../../../css/icons/backward.svg" title="Назад">
+				</a>
+				<a href="index.html">
+					<img src="../../../css/icons/submenu.svg" title="Подменю">
+				</a>
+				<a href="../../../index.html">
+					<img src="../../../css/icons/menu.svg" title="Главное меню">
+				</a>
+				<a href="https://t.me/quessentry">
+					<img src="../../../css/icons/tg.svg" class="icon" title="Связь со мной">
+				</a>
+			</div>
+			<div class="elements">
+				<div class="topic">
+					<div class="num">
+						<p>08</p>
+					</div>
+					<div class="title">
+						<p>Double DQN. Dueling Network. Функционал ошибки.</p>
+					</div>
+				</div>
+				<div class="content">
+					<p class="redline">В стандартном Q-learning используется максимизация целевого признака</p>
+					<p class="equation">$Q_{\text{target}} = r + \gamma \max_{a'} Q(s',a')$,</p>
+					<p>где $Q(s',a')$ берется из той же функции, что и текущая оценка $Q(s,a)$. Это приводит к переоценке $Q$-значений, т.к. максимизация может усиливать ошибки.</p>
+					<p>Для устранения переоценки Double Q-learning разделяет выбор действий и оценку его ценности, используя две различные сети:</p>
+					<ol>
+						<li>
+							<p>Главная сеть $Q^A_{\mathbf{w}}$ для выбора действия:</p>
+							<p class="equation">$a^* = \argmax{Q^A_{\mathbf{w}}(s',a')}$.</p>
+						</li>
+						<li>
+							<p>Целевая сеть $Q^B_{\mathbf{w}}$ для оценки выбранного действия:</p>
+							<p class="equation">$\hat{Q} = r + \gamma Q^B_{\mathbf{w}}(s',a^*)$.</p>
+						</li>
+					</ol>
+					<p class="sign">Dueling Network</p>
+					<p>Идея: разделить оценку $Q(s,a)$ на две компоненты:</p>
+					<ol>
+						<li>функция ценности состояния $V(s)$: оценка "качества" состояния независимо от выбранного действия.</li>
+						<li>функция преимущества $A(s,a)$: насколько действие $a$ лучше среднего действия в состоянии $s$:
+							<p class="equation">$Q(s,a) = V(s) + A(s,a) - \frac{1}{|A|}\sum A(s,a')$.</p>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../../js/katex.js"></script>
+	<script type="text/javascript" src="../../../js/contrib/auto-render.js"></script>
+	<script type="text/javascript" src="../../../js/render.js"></script>
+	<script type="text/javascript" src="../../../js/display.js"></script>
+	<script type="text/javascript" src="../../../js/navigate.js"></script>
+</html>

@@ -8,7 +8,7 @@
  */
 function daysObject() {
     const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" ];
-    let todayDay = new Date().getDay();
+    let todayDay = new Date().();
     return {
         yesterday: days[todayDay - 1],
         today: days[todayDay],

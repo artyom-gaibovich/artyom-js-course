@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../../../css/page.css">
+		<link rel="stylesheet" type="text/css" href="../../../css/katex.css">
+		<title></title>
+	</head>
+	<body>
+		<div class="page">
+			<div class="sidebar">
+				<a id="nextPage">
+					<img src="../../../css/icons/forward.svg" title="Далее">
+				</a>
+				<a id="prevPage">
+					<img src="../../../css/icons/backward.svg" title="Назад">
+				</a>
+				<a href="index.html">
+					<img src="../../../css/icons/submenu.svg" title="Подменю">
+				</a>
+				<a href="../../../index.html">
+					<img src="../../../css/icons/menu.svg" title="Главное меню">
+				</a>
+				<a href="https://t.me/quessentry">
+					<img src="../../../css/icons/tg.svg" class="icon" title="Связь со мной">
+				</a>
+			</div>
+			<div class="elements">
+				<div class="topic">
+					<div class="num">
+						<p>17</p>
+					</div>
+					<div class="title">
+						<p>ФБ. Расчет апостериорного распределения на примере линейной регрессионной модели</p>
+					</div>
+				</div>
+				<div class="content">
+					<p>Пусть нам даны матрица признаков $\mathbf{X}$, вектор наблюдений $\mathbf{y}$, шум $\sigma^2 = 1$:</p>
+					<p class="equation">$\mathbf{X} = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 3 \end{bmatrix}; \ \ \mathbf{y} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$.</p>
+					<p>Априорное распределение: $\theta \sim \mathcal{N}\bigg(\mu_0 = \begin{bmatrix} 0 \\ 0 \end{bmatrix}; \Sigma_0 = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}\bigg)$.</p>
+					<ol>
+						<li>
+							<p>Вычисление ковариации апостериорного распределения:</p>
+							<p class="equation">$\Sigma_{\mathcal{N}} = (\Sigma^{-1}_0 + \frac{1}{\sigma^2}\mathbf{X}^T\mathbf{X})^{-1} = \dfrac{1}{24} \begin{bmatrix} 15 & -6 \\ -6 & 4 \end{bmatrix}$.</p>
+						</li>
+						<li>
+							<p>Вычисление среднего апостериорного распределения:</p>
+							<p class="equation">$\mu_{\mathcal{N}} = \Sigma_{\mathcal{N}}(\Sigma^{-1}_0 \mu_0 + \frac{1}{\sigma^2}\mathbf{X}^T\mathbf{y}) = \begin{bmatrix} 0.625 \\ 0.25 \end{bmatrix}$.</p>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../../js/katex.js"></script>
+	<script type="text/javascript" src="../../../js/contrib/auto-render.js"></script>
+	<script type="text/javascript" src="../../../js/render.js"></script>
+	<script type="text/javascript" src="../../../js/display.js"></script>
+	<script type="text/javascript" src="../../../js/navigate.js"></script>
+</html>

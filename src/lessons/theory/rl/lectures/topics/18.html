@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../../../css/page.css">
+		<link rel="stylesheet" type="text/css" href="../../../css/katex.css">
+		<title></title>
+	</head>
+	<body>
+		<div class="page">
+			<div class="sidebar">
+				<a id="nextPage">
+					<img src="../../../css/icons/forward.svg" title="Далее">
+				</a>
+				<a id="prevPage">
+					<img src="../../../css/icons/backward.svg" title="Назад">
+				</a>
+				<a href="index.html">
+					<img src="../../../css/icons/submenu.svg" title="Подменю">
+				</a>
+				<a href="../../../index.html">
+					<img src="../../../css/icons/menu.svg" title="Главное меню">
+				</a>
+				<a href="https://t.me/quessentry">
+					<img src="../../../css/icons/tg.svg" class="icon" title="Связь со мной">
+				</a>
+			</div>
+			<div class="elements">
+				<div class="topic">
+					<div class="num">
+						<p>18</p>
+					</div>
+					<div class="title">
+						<p>Projection sampling, importence sampling</p>
+					</div>
+				</div>
+				<div class="content">
+					<p class="redline">Данные методы позволяют оценить апостериорное распределение $P(\theta \mid D)$, используя численные методы</p>
+					<p class="sign">Importance Sampling</p>
+					<p>Это метод оценки апостериорного распределения, позволяющий преобразовать интегралы по сложному распределению $P(\theta \mid D)$ в интегралы по более простому вспомогательному распределению $q(\theta)$. Importance Sampling используется для оценки ожиданий вида:</p>
+					<p class="equation">$\mathbb{E}_{P(\theta \mid D)}[f(\theta)] = \int f(\theta) P(\theta \mid D) \mathbf{d}\theta$,</p>
+					<p>где $f(\theta)$ — некоторая функция интереса.</p>
+					<p>Идея:</p>
+					<ol>
+						<li>Найти простое распределение $q(\theta)$, которое приближает апостериорное $P(\theta \mid D)$.</li>
+						<li>Генерируем выборки $\theta_i$ из $q(\theta)$, затем взвешиваем их посредством весов важности
+							<p class="equation">$w_i = \dfrac{P(\theta_i \mid D)}{q(\theta_i)}$.</p>
+						</li>
+						<li>Используем выборки для приближения оценки интересующих величин. Оценка математического ожидания вычисляется как:
+							<p class="equation">$\mathbb{E}_{P(\theta \mid D)}[f(\theta)] = \dfrac{1}{N}\sum\limits_{i=1}^N w_i f(\theta_i)$.</p>
+						</li>
+					</ol>
+					<p>Недостаток: качество оценки сильно зависит от $q(\theta)$. Если $q(\theta)$ плохо аппроксимирует $P(\theta \mid D)$, веса могут иметь высокую дисперсию, что приводит к неточным оценкам.</p>
+					<p class="sign">Projection Sampling</p>
+					<p>Projection Sampling — это метод, который используется для аппроксимации сложных распределений путем проекции выборок на более простое параметрическое семейство распределений. Этот метод часто применяется в RL для аппроксимации апостериорных распределений в задачах, где точное вычисление невозможно.</p>
+					<ol>
+						<li>Генерируются выборки из сложного распределения $P(\theta \mid D)$.</li>
+						<li>Эти выборки проецируются на параметрическое семейство распределений $Q_(\theta \mid \phi)$, где $\phi$ — параметры семейства.</li>
+						<li>Параметры $\phi$ выбираются так, чтобы минимизировать расстояние между $P(\theta \mid D)$ и $Q(\theta \mid \phi)$.</li>
+						<p>Задача состоит в нахождении $\phi$ такого, что</p>
+						<p class="equation">$\phi^* = \argmin\limits_{\phi}D(P(\theta \mid D) \vert\vert Q(\theta \mid \phi))$,</p>
+						<p>где $D(\cdot \vert\vert \cdot)$ — некоторая мера расстояния между распределениями, например, KL-дивергенция:</p>
+						<p class="equation">$D_{KL}(P \vert\vert Q) = \int P(\theta \mid D) \ln{\dfrac{P(\theta \mid D)}{Q(\theta \mid \phi)}}\mathrm{d}\theta$.</p>
+						<p>На практике минимизация выполняется с помощью численных методов, таких как градиентный спуск.</p>
+						<ul>
+							<li>Преимущество: позволяет аппроксимировать сложные распределения более простыми.</li>
+							<li>Недостаток: качество аппроксимации зависит от выбора параметрического семейства $Q(\theta \mid \phi)$.</li>
+						</ul>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../../js/katex.js"></script>
+	<script type="text/javascript" src="../../../js/contrib/auto-render.js"></script>
+	<script type="text/javascript" src="../../../js/render.js"></script>
+	<script type="text/javascript" src="../../../js/display.js"></script>
+	<script type="text/javascript" src="../../../js/navigate.js"></script>
+</html>

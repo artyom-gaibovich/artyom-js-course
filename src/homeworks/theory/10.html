@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/page.css">
+		<link rel="stylesheet" type="text/css" href="css/katex.css">
+		<title></title>
+	</head>
+	<body>
+		<div class="page">
+			<div class="sidebar">
+				<a id="nextPage">
+					<img src="css/icons/forward.svg" title="Далее">
+				</a>
+				<a id="prevPage">
+					<img src="css/icons/backward.svg" title="Назад">
+				</a>
+				<a href="index.html">
+					<img src="css/icons/submenu.svg" title="Подменю">
+				</a>
+				<a href="../../../index.html">
+					<img src="css/icons/menu.svg" title="Главное меню">
+				</a>
+				<a href="https://t.me/quessentry">
+					<img src="css/icons/tg.svg" class="icon" title="Связь со мной">
+				</a>
+			</div>
+			<div class="elements">
+				<div class="topic">
+					<div class="num">
+						<p>10</p>
+					</div>
+					<div class="title">
+						<p>Алгоритмы основанные на стратегии. Policy gradient. Вывод алгоритма Reinforce.</p>
+					</div>
+				</div>
+				<div class="content">
+					<p class="redline">В отличие от методов, основанных на значениях (value-based methods), где оптимизируется функция ценности (value function), policy-based методы напрямую работают с параметризованной политикой $\pi_{\theta}$, где $\theta$ — это параметры, которые настраиваются в процессе обучения</p>
+					<p>Цель policy-based методов — максимизировать ожидаемую награду $J(\theta)$:</p>
+					<p class="equation">$J(\theta) = \mathbb{E}_{\tau \sim \pi{\theta}}\bigg[\sum^T\limits_{t=0}\gamma^t r_t \bigg]$,</p>
+					<p>где $\tau \sim \pi_{\theta}$ — траектория $(s_0, a_0, s_1, a_1, ...)$, порожденная политикой $\pi_{\theta}$.</p>
+					<p class="sign">Policy Gradient</p>
+					<p>Policy gradient — это метод оптимизации, который использует градиентный подъем для максимизации $J(\theta)$. Основная идея заключается в том, чтобы обновлять параметры $\theta$ в направлении, которое увеличивает ожидаемую награду:</p>
+					<p class="equation">$\theta \leftarrow \theta + \alpha \nabla_{\theta}J(\theta)$.</p>
+					<p class="sign">Градиент политики (Policy Gradient Theorem)</p>
+					<p>Градиент $J(\theta)$ может быть выражен как</p>
+					<p class="equation">$\nabla_{\theta}J(\theta) = \mathbb{E}_{\tau \sim \pi{\theta}}\bigg[\sum^T\limits_{t=0}\nabla_{\theta}\ln{\pi_{\theta}(a_t \mid s_t)}\cdot G_t \bigg]$,</p>
+					<p>где $G_t = \sum^T\limits_{t'=t}\gamma^{t'-t}r_{t'}$ — это дисконтированная сумма наград, начиная с шага $t$; $t'$ — это индекс времени, который начинается с текущего момента $t$ и идет до конца эпизода (горизонта) $T$; $\ln{\pi_{\theta}(a_t \mid s_t)}$ —  это градиент логарифма вероятности выбора действия $a_t$ в состоянии $s_t$.</p>
+					<p>Почему логарифм? Вероятность траектории $\pi_{\theta}(\tau)$ состоит из множества шагов. Логарифм превращает произведение вероятностей в сумму, что упрощает вычисление градиента.</p>
+					<p class="sign">Алгоритм $\text{REINFORCE}$</p>
+					<ol>
+						<li>Генерация траектории: используя текущую политику $\pi_{\theta}$, агент взаимодействует со средой и генерирует траекторию $\tau = (s_0, a_0, r_0, s_1, a_1, r_1, ..., s_T, a_T, r_T)$.</li>
+						<li>Для каждого шага $t$ в траектории вычисляется дисконтированный возврат $G_t$.</li>
+						<li>Параметры политики обновляются по формуле:</li>
+						<p class="equation">$\theta \leftarrow \theta + \alpha \sum^T\limits_{t=0}\nabla_{\theta}\ln{\pi_{\theta}(a_t \mid s_t)}\cdot G_t$.</p>
+					</ol>
+					<ul>
+						<li>Преимущества: может работать с непрерывными пространствами действий</li>
+						<li>Недостатки: высокая дисперсия оценок градиента, что может замедлять обучение; требует много данных для сходимости, так как использует метод Монте-Карло.</li>
+					</ul>
+					<p>Оценка градиента $\nabla_{\theta}J(\theta)$ — это случайная величина, потому что она зависит от траекторий $\tau$, которые генерируются стохастической политикой $\pi_{\theta}$ (политика $\pi_{\theta}(a \mid s)$ — это вероятностное распределение $\Rightarrow$ в одном и том же состоянии агент может выбрать разные действия). Так как оценки градиента сильно "скачут" от одной траектории к другой, то дисперсия высока. Для уменьшения дисперсии и ускорения обучения используется actor-critic. Критик (critic) оценивает функцию ценности, а актор (actor) обновляет политику.</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/katex.js"></script>
+	<script type="text/javascript" src="js/contrib/auto-render.js"></script>
+	<script type="text/javascript" src="js/render.js"></script>
+	<script type="text/javascript" src="js/display.js"></script>
+	<script type="text/javascript" src="js/navigate.js"></script>
+</html>

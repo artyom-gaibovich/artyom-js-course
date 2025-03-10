@@ -1,0 +1,224 @@
+/* Шрифты */
+
+@font-face {
+	font-family: "UniSansRegular";
+	src: url('fonts/UniSansRegular.woff') format('woff');
+	flex-grow: 1;
+}
+
+@font-face {
+	font-family: "UniSansBold";
+	src: url('fonts/UniSansBold.woff') format('woff');
+	flex-grow: 1;
+}
+
+@font-face {
+    font-family: "HackRegular";
+    src: url('fonts/HackRegular.woff') format('woff');
+    flex-grow: 1;
+}
+
+@font-face {
+    font-family: "HackBold";
+    src: url('fonts/HackBold.woff') format('woff');
+    flex-grow: 1;
+}
+
+/* Основные стили */
+
+body {
+    background: #000000;
+    margin: 0;
+}
+
+/* Структура страницы */
+
+.page {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Боковая панель */
+
+.sidebar {
+    background: #121212;
+    height: 100vh;
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    margin-bottom: 5%;
+    flex-grow: 0;
+}
+
+.sidebar img {
+    margin-top: 10px;
+    width: 45px;
+    height: 45px;
+}
+
+/* Элементы страницы */
+
+.elements {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Тема и ее содержимое */
+
+.topic,
+.content {
+    width: calc(100% - 8.5%);
+    color: #f2f2f2;
+    margin-left: 6.5%;
+    display: flex;
+    background: #0d0d0d;
+    text-align: justify;
+    flex-direction: inherit;
+    border-radius: 15px;
+}
+
+.topic {
+    height: 130px;
+    margin-bottom: 1.5%;
+    flex-direction: row;
+    align-items: center;
+}
+
+.topic p {
+    font-family: 'UniSansRegular';
+}
+
+.title {
+    margin-left: 2%;
+    padding: 30px;
+}
+
+.title p {
+    font-size: 45px;
+}
+
+.num {
+    width: 13%;
+    min-width: 13%;
+    height: 100%;
+    background-color: #142422;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.num p {
+    font-size: 90px;
+    text-align: center;
+}
+
+/* Настройки текстового содержимого */
+
+.content p,
+.content li {
+    font-family: 'UniSansRegular';
+    font-size: 22px;
+    margin-left: 2%;
+    margin-right: 2%;
+    line-height: 1.6em;
+}
+
+.content p.redline {
+    text-indent: 2.5em;
+}
+
+/* Уравнения и графики*/
+
+.equation {
+    text-align: center;
+    font-size: 18px;
+}
+
+.plot {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 60%;
+    width: 60%;
+}
+
+/* Дополнительная информация */
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.detailsShowButton {
+    cursor: pointer;
+    color: #e6ffb3;
+}
+
+.detailsContent {
+    display: none;
+    margin: 5px 0;
+    flex-grow: 1;
+}
+
+.hiddenContent {
+    display: none;
+}
+
+/* Разметка */
+
+.tablex {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.tablex td {
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    width: 450px;
+}
+
+ol.roman {
+    list-style-type: upper-roman;
+    text-indent: 0; 
+}
+
+ol.property {
+    list-style-type: disc;
+}
+
+ol.theorem {
+    list-style-type: circle;
+}
+
+.sign {
+    color: lightgreen;
+}
+
+.showHiddenContent {
+    color: orchid;
+    cursor: pointer;
+}
+
+/* Код */
+
+.code {
+    width: 95%;
+    background-color: #120202;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.code p {
+    font-family: "HackRegular";
+    font-size: 12;
+}
