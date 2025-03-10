@@ -4,6 +4,22 @@ let secondValue = 5000;
 
 
 
+
+const dateTimeRegex = /g/;
+
+function isValidDateTime(dateTimeString) {
+    return dateTimeRegex.test(dateTimeString);
+}
+
+console.log(isValidDateTime('2023')); // true
+console.log(isValidDateTime('2023-04-26T12:34:56.789+02:00')); // true
+console.log(isValidDateTime('2023-04-26T12:34:56-05:00')); // true
+console.log(isValidDateTime('2023-04-26T12:34:56-05:00'));
+
+
+
+
+
 let undefVar = console.log('res');
 
 console.log(undefVar, 'here');

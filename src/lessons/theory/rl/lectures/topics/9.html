@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../../../css/page.css">
+		<link rel="stylesheet" type="text/css" href="../../../css/katex.css">
+		<title></title>
+	</head>
+	<body>
+		<div class="page">
+			<div class="sidebar">
+				<a id="nextPage">
+					<img src="../../../css/icons/forward.svg" title="Далее">
+				</a>
+				<a id="prevPage">
+					<img src="../../../css/icons/backward.svg" title="Назад">
+				</a>
+				<a href="index.html">
+					<img src="../../../css/icons/submenu.svg" title="Подменю">
+				</a>
+				<a href="../../../index.html">
+					<img src="../../../css/icons/menu.svg" title="Главное меню">
+				</a>
+				<a href="https://t.me/quessentry">
+					<img src="../../../css/icons/tg.svg" class="icon" title="Связь со мной">
+				</a>
+			</div>
+			<div class="elements">
+				<div class="topic">
+					<div class="num">
+						<p>09</p>
+					</div>
+					<div class="title">
+						<p>Алгоритмы, основанные на стратегии. Crossentropy метод. Функционал ошибки</p>
+					</div>
+				</div>
+				<div class="content">
+					<p class="redline">Основные шаги CEM:</p>
+					<ol class="roman">
+						<li>Инициализация: задается начальное распределение параметров политики $\theta$, например, равномерное распределение ($\pi_{\theta} (a_i \mid s) = p$.</li>
+						<li>Для каждого $\theta_i$ агент совершает несколько эпизодов в клеточном мире, записывая траектории $\tao_i$.</li>
+						<li>Для каждой траектории вычисляется суммарная награда $R_i$.</li>
+						<li>Выбираем $K$ лучших траекторий с наибольшими $R_i$.</li>
+						<li>Обновляем параметры распределения на основе параметров $\theta_i$, соответствующих лучшим траекториям.</li>
+						<li>Повторение процесса до тех пор, пока политика не стабилизируется.</li>
+					</ol>
+					<p class="sign">Пример</p>
+					<p>Агент должен найти кратчайший путь от начальной клетки до целевой, избегая препятствий.</p>
+					<ol class="roman">
+						<li>Начальные условия:
+							<ul>
+								<li>стартовая клетка $(0, 0)$;</li>
+								<li>целевая $(N-1, M-1)$;</li>
+								<li>препятствия размещены случайно.</li>
+							</ul>
+						</li>
+						<li>Генерация стратегий: каждая стратегия это последовательность действий $[\uparrow, \downarrow, \leftarrow, \rightarrow]$.</li>
+						<li>Оценка стратегии:
+							<p class="equation">$R_{\theta} = -\text{длина пути} + \lambda_1 \text{штраф за столкновение} + \lambda_2 \text{штраф за выход}$.</p>
+						</li>
+						<li>Обновление параметров распределения на основе параметров $\theta_i$, соответствующих лучшим стратегиям.</li>
+					</ol>
+					<p>Функционал ошибки: дивергенция Кульбака-Лейблера $D_{KL}(P_{\text{target}} \vert\vert P_{\text{current}})$.</p>
+					<p class="sign">Решение задачи для пятиклеточного мира:</p>
+					<div class="code">
+						<p>import numpy as np</p>
+						<p>&nbsp;</p>
+						<p>NUM_STATES = 5</p>
+						<p>ACTIONS = ['left', 'right']</p>
+						<p>NUM_ACTIONS = len(ACTIONS)</p>
+						<p>&nbsp;</p>
+						<p># Инициализация параметров из нормального распределения</p>
+						<p>mu = np.zeros((NUM_STATES, NUM_ACTIONS))  # Средние значения</p>
+						<p>sigma = 1.0  # Стандартное отклонение</p>
+						<p>theta = np.random.normal(mu, sigma, size=(NUM_STATES, NUM_ACTIONS))</p>
+						<p>&nbsp;</p>
+						<p>def softmax(x):</p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;exp_x = np.exp(x - np.max(x, axis=-1, keepdims=True))</p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;return exp_x / np.sum(exp_x, axis=-1, keepdims=True)</p>
+						<p>&nbsp;</p>
+						<p>policy = softmax(theta)</p>
+						<p>&nbsp;</p>
+						<p>print(policy)</p>
+					</div>
+					&nbsp;
+					<div class="code">
+						<p># output</p>
+						<p>&nbsp;</p>
+						<p>[[0.48, 0.52], # State 1</p>
+						<p>[0.51, 0.49],  # State 2</p>
+						<p>[0.50, 0.50],  # State 3</p>
+						<p>[0.49, 0.51],  # State 4</p>
+						<p>[0.52, 0.48]]  # State 5</p>
+					</div>
+					<p>Обновление посредством метода максимального правдоподобия</p>
+					<p class="equation">$\theta_{s,a} = \theta_{s,a} + \alpha \cdot \dfrac{\partial \ln{\pi_{\theta}(a \mid s)}}{\partial \theta_{s,a}}$.</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../../js/katex.js"></script>
+	<script type="text/javascript" src="../../../js/contrib/auto-render.js"></script>
+	<script type="text/javascript" src="../../../js/render.js"></script>
+	<script type="text/javascript" src="../../../js/display.js"></script>
+	<script type="text/javascript" src="../../../js/navigate.js"></script>
+</html>
