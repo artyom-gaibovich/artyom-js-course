@@ -1,7 +1,6 @@
 //2) Сделай функцию, которая параметром будет принимать число и удалять из него нули.
 
-function removeZeros(num) {
-    return Number(num.toString().split("0").join(""));
+function removeZeros(num) {return Number(num.toString().split("0").join(""));
 }
 
 console.log(removeZeros(1000));
