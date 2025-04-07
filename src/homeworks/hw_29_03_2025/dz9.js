@@ -3,13 +3,17 @@
 
 
 const studentsArr = [
-    { name: "Alex", grade: 85 },
-    { name: "Sam", grade: 90 },
-    { name: "Charlie", grade: 78 }
+    {name: "Alex", grade: 85},
+    {name: "Sam", grade: 90},
+    {name: "Charlie", grade: 78}
 ]
-function getBestStudent (students){
-    return students.reduce((best, student) =>
-        student.grade > best.grade ? student : best
+
+function getBestStudent(students) {
+    return students.reduce((best, student) => student.grade > best.grade ? student : best
     ).name;
 }
-console.log(getBestStudent(studentsArr));
+
+const getBestStud = (students) => students.reduce((best, student) => student.grade > best.grade ? student : best
+).name
+
+console.log(getBestStud(studentsArr));
