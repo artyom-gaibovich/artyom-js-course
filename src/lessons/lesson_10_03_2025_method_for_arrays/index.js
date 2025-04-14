@@ -48,8 +48,17 @@ const evenArray = arrayFilter.filter((value, index) => value % 2 === 0);
 
 /**
  * Задача
- * const points = [[{x: 10, y: -5}, {x: 15, y: 20}, {x: 1, y:1}, {x: -1, y: -1}, {x: -1, y: 10}]]
+ * const points = [{x: 10, y: -5}, {x: 15, y: 20}, {x: 1, y:1}, {x: -1, y: -1}, {x: -1, y: 10}]
  * Задачать получить новый массив, в котором у нас только те точки, которые лежат в первой червети
  */
 
-const points = [[{x: 10, y: -5}, {x: 15, y: 20}, {x: 1, y:1}, {x: -1, y: -1}, {x: -1, y: 10}]]
+const points = [{x: 10, y: -5}, {x: 15, y: 20}, {x: 1, y:1}, {x: -1, y: -1}, {x: -1, y: 10}]
+const someArrayFunc = (value, index) => {
+    const {x, y} = value
+    if (x <= 0 && y > 0) {
+        return true;
+    }
+}
+const oneOfFour = points.filter(someArrayFunc);
+
+console.log(oneOfFour);

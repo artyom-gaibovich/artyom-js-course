@@ -4,8 +4,9 @@
 
 
 function addToStart(arr, item) {
-    arr.unshift(item);// твой код здесь
-    return arr;
+    const newarr = [...arr]
+    newarr.unshift(item);// твой код здесь
+    return newarr;
 }
 
 console.log(addToStart(["б", "в"], "а")); // ["а", "б", "в"]

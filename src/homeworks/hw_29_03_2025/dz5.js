@@ -13,7 +13,7 @@ const listOfProducts = [
     { id: 3, name: "Tablet", inStock: true }
 ]
 function findOutOfStock(products) {
-    return products.find(product => product.inStock === false) || null;
+    return products.find(product => !product.inStock) || null;
 }
 console.log(findOutOfStock(listOfProducts));
 console.log(findOutOfStock([{ id: 1, name: "TV", inStock: true }]));

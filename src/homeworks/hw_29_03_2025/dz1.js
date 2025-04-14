@@ -7,4 +7,4 @@ numArr = [1, [2, 3], [4, [5, 6]], 7];
 function flattenArray(arr, depth){
     return arr.flat(depth);
 }
-console.log(flattenArray(numArr, 1));
+console.log(flattenArray(numArr, 2));

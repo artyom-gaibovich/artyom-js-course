@@ -17,6 +17,8 @@ function flattenArray(arr, depth){
 console.log(flattenArray(transactionsArr, 1));
 const searchCategory = transactionsArr.find(x => x.category === "food");
 console.log(searchCategory);
-const sumArr = searchCategory.reduce((acc, cur) => acc + cur, 0)
+const sumArr = transactionsArr.reduce((acc, {amount}) => acc + amount, 0)
 console.log(sumArr);
 
+const userToFind = ["User 1_A", "User 2_A"];
+const allUsers = ["User 1_A", "User 2_A", "User 3", "User 4", "User 5"];
