@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "node src/main.js",
     "start:08_12_2024": "node src/lessons/08_12_2024_work_with_html/index.js"
   },
@@ -15,6 +16,9 @@
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "prettier": "^3.5.3",
     "seedrandom": "^3.0.5"
   }
 }

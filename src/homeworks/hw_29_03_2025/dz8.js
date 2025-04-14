@@ -8,4 +8,4 @@ let obj = strArr.reduce(function (acc, cur) {
 }, {})
 
 console.log(obj);
-//не понял как сделать
+//не понял как сделать G
