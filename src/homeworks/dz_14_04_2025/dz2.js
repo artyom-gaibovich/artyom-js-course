@@ -3,12 +3,13 @@ const users = [
 	{ id: 2, name: 'Bob', age: 30, isActive: false },
 ];
 
-Math.min();
+
 
 function sortByProperty(arr, property) {
-	/**
-	 * Реализация сортировки
-	 */
+	return arr.sort((a, b) => {
+		return a[property] > b[property] ? 1 : -1;
+	});
 }
 
-sortByProperty(users, 'name');
+
+console.log(sortByProperty(users, 'name'));
