@@ -4,5 +4,5 @@ const pepArr = [
     { id: 2, name: "Bob", age: 30 },
     { id: 3, name: "Charlie", age: 20 }
 ]
-const searchSomeone = pepArr.find(x => x.age > 25);
+const searchSomeone = pepArr.findIndex(x => x.age > 25);
 console.log(searchSomeone);

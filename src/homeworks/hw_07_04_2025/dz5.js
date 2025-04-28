@@ -7,7 +7,7 @@ function hasElement(arr, item) {
     if (arr.includes(item) === true){
         return true;
     }
-    return false// твой код здесь
+    return false;// твой код здесь
 }
 
 console.log(hasElement([1, 2, 3, 4], 3)); // true

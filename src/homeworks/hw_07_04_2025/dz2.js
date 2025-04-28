@@ -3,11 +3,12 @@
 - Если массив пустой, возвращай строку "Массив пуст".*/
 
 
-function removeLastItem(arr) {
-    if (arr.length === 0) {
+function removeLastItem(arr, item) {
+    const newarr = [...arr]
+    if (newarr.length === 0) {
         return "Массив пуст";
     }
-    return arr.pop();
+    return newarr.pop();
 }
 
 console.log(removeLastItem([10, 20, 30]));

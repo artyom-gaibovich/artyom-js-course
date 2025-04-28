@@ -11,6 +11,6 @@ const pepArr = [
     { id: 2, name: "Bob", age: 30 },
     { id: 3, name: "Charlie", age: 20 }
 ]
-const searchSomeone = pepArr.find(x => x.name === "Bob");
+const searchSomeone = pepArr.find(x => x.name === "Bob" || x.age === 30);
 console.log(searchSomeone);
 

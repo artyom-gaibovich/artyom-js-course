@@ -12,17 +12,26 @@
 const queue = {
     tasks: [],
 
+    logEmptyMessage() {
+        console.log("Очередь пуста");
+    },
+
     enqueue(callback) {
         this.tasks.push(callback);
     },
 
     dequeue() {
-        if (this.isEmpty()) {
-            console.log("Очередь пуста");
-            return;
-        }
+        if (this.checkEmpty()) return;
         const task = this.tasks.shift();
-        task(); // Выполняем функцию
+        task();
+    },
+
+    checkEmpty() {
+        if (this.isEmpty()) {
+            this.logEmptyMessage();
+            return true;
+        }
+        return false;
     },
 
     size() {
@@ -33,6 +42,7 @@ const queue = {
         return this.tasks.length === 0;
     }
 };
+
 
 // Тестирование
 queue.enqueue(() => console.log("Первая задача"));

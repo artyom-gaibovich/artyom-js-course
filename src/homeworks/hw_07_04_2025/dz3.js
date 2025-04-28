@@ -4,10 +4,11 @@
 
 
 function removeFirstItem(arr) {
-    if (arr.length === 0) {
+    const newarr = [...arr]
+    if (newarr.length === 0) {
         return "Массив пуст";
     }
-    return arr.shift()
+    return newarr.shift()
 }
 
 console.log(removeFirstItem(["яблоко", "банан", "апельсин"])); // "яблоко"
