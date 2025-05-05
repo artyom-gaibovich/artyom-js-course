@@ -25,14 +25,6 @@ const user = {
 
 
 
-const account = {
-	balance: 150
-}
-
-
-account.increase(100)
-account.increase(50)
-
 
 const myUser = {
 	name: 'John',
