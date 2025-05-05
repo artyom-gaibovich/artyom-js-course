@@ -1,4 +1,3 @@
-
 /**
  * Итерирование по объекту
  */
@@ -7,9 +6,9 @@ const user = {
 	name: 'Vas',
 	age: 15,
 	greet() {
-		console.log('Привет!', this.name)
-	}
-}
+		console.log('Привет!', this.name);
+	},
+};
 
 
 /*
@@ -43,21 +42,21 @@ for (const key in user) {
 let someUser = {
 	name: 'Vas',
 	age: 15,
-	country: 'Russia'
-}
+	country: 'Russia',
+};
 
 
 const someUserAdditionalProps = {
 	isHasGirlfriend: false,
 	isHasDog: true,
 	car: 'BMW',
-}
+};
 
 
 const newSomeUser = {
 	...someUser,
-	...someUserAdditionalProps
-}
+	...someUserAdditionalProps,
+};
 
 
 /**
@@ -70,16 +69,60 @@ const countries = {
 	russia: {
 		capital: {
 			name: 'Moscow',
-		}
+		},
 	},
-	china: {
-
-	}
-}
+	china: {},
+};
 
 
-console.log(countries['russia']?.capital?.name)
+console.log(countries['russia']?.capital?.name);
 
+
+/**
+ * IProduct
+ * {
+ *   id: number,
+ *   title: number,
+ *   price: number,
+ *
+ * }
+ *
+ */
+
+const cart = {
+	products: [],
+	getProducts() {
+
+	},
+
+	/**
+	 * Получить продукт из корзизны по ID-шнику
+	 */
+	getProductById() {
+
+	},
+
+	/**
+	 * Удалить продукт из корзины по ID-шнику
+	 */
+	deleteProduct() {
+	},
+
+
+	/**
+	 * Добавить продукт в корзину
+	 */
+	addProduct() {
+
+	},
+
+	/**
+	 * Посчитать суммарную стоимость всех продуктов добавленных в корзину
+	 */
+	calcTotalPrice() {
+
+	},
+};
 
 
 
