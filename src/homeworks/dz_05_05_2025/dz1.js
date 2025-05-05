@@ -1,19 +1,33 @@
 //У этого объекта нужно реализовать методы
 const wallet = {
     balance : 0,
-    transactions: []
-}
-
-function operation(walletObj, sum, reason) {
-    if (walletObj.balance + sum < 0) {
-        return false, "Ошибка! Недостаточно средств";
+    transactions: [],
+    increase({ sum, reason }) {
+        this.balance += sum;
+        this.transactions.push({
+            sum,
+            reason
+        })
+        return true;
+    },
+    decrease({sum, reason}) {
+        if (this.balance < sum) {
+            return false;
+        }
+        this.balance -= sum;
+        this.transactions.push({
+            sum, reason
+        })
+        return true;
+    },
+    getOpsLength() {
+        return this.transactions.length
     }
-    walletObj.balance += sum;
-    walletObj.transactions.push({ reason, sum });
-    return true, "Операция прошла!";
 }
 
-console.log(operation(wallet, 100, "Зарплата"));
-console.log(operation(wallet, -50, "Еда"));
-console.log(operation(wallet, -100, "Оплата"))
-console.log(wallet.transactions);
+wallet.increase({
+    reason: 'Налоги',
+    sum: 200,
+})
+
+console.log(wallet.getOpsLength())
