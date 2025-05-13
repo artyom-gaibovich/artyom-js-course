@@ -31,7 +31,7 @@ const cart = {
     /**
      * Посчитать суммарную стоимость всех продуктов добавленных в корзину
      */
-    calcTotalPrice(price) {
+    calcTotalPrice() {
         return this.products.reduce((total, product) => total + product.price, 0);
     },
 };
