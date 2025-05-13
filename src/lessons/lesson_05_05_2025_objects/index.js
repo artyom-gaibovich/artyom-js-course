@@ -92,6 +92,7 @@ console.log(countries['russia']?.capital?.name);
 const cart = {
 	products: [],
 	getProducts() {
+		return this.products;
 
 	},
 
@@ -112,8 +113,8 @@ const cart = {
 	/**
 	 * Добавить продукт в корзину
 	 */
-	addProduct() {
-
+	addProduct({id, title, price}) {
+		this.products.push({id, title, price})
 	},
 
 	/**
@@ -124,5 +125,6 @@ const cart = {
 	},
 };
 
-
+cart.addProduct({id:1, title:"pepsi", price: 100})
+console.log(cart.getProducts());
 
