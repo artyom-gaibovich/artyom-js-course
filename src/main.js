@@ -78,6 +78,8 @@ function spiderLinks(currentUrl, body, nesting, callback) {
 }
 
 
+
+
 /*
 function spiderLinks(currentUrl, body, nesting, callback) {
     if (nesting === 0) {
@@ -148,10 +150,35 @@ spider('https://google.com', 3, (err, filename, downloaded) => {
 console.log('1')
 
 request("https://jsonplaceholder.typicode.com/posts/100", (err, response, body) => {
-    console.log('2')
     if (err) console.error(err);
     console.log(body);
 });
 
 
-console.log('3')
+
+
+
+function spiderLinks(currentUrl, body, nesting, callback) {
+    if (nesting === 0) {
+        return process.nextTick(callback);
+    }
+    const links = utilities.getPageLinks(currentUrl, body);
+    if (links.length === 0) {
+        return process.nextTick(callback);
+    }
+    let completed = 0, hasErrors = false;
+
+    function done(err) {
+        if (err) {
+            hasErrors = true;
+            return callback(err);
+        }
+        if (++completed === links.length && !hasErrors) {
+            return callback();
+        }
+    }
+
+    links.forEach(link => {
+        spider(link, nesting - 1, done);
+    });
+}

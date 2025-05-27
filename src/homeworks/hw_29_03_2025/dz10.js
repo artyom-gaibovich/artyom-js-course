@@ -12,9 +12,22 @@ const transactionsArr = [
     {id: 4, amount: 200, category: "entertainment"}
 ]
 
+
+
+const user = {
+    name: 'Vas',
+    age: 15,
+    greet() {
+        console.log('Привет!', this.name);
+    },
+};
+
+
 function flattenArray(arr, depth) {
     return transactionsArr.flat(depth);
 }
+
+
 
 console.log(flattenArray(transactionsArr, 1));
 const searchCategory = transactionsArr.find(x => x.category === "food");
