@@ -42,3 +42,13 @@ function addRoleForUser(user, role) {
 }
 
 addRoleForUser(user, 'admin')
+
+
+const user2 = {
+	age: 10,
+	name: 'va'
+}
+
+
+
+console.log(user);
