@@ -27,6 +27,7 @@ const user = {
 	name: 'John',
 	email: 'john@example.com',
 	getName: function() {
+		debugger
 		console.log('Hello', this.name)
 	},
 	getNameArrow: () => {
@@ -41,10 +42,30 @@ const user2 = {
 
 }
 
+/*
 user.getName()
 user.getNameArrow()
+*/
 
 user2.getName = user.getName;
 
+/*
 
 user2.getName();
+*/
+
+
+
+
+
+const user3 = {
+	name: 'Dima',
+	email: 'dima@example.com',
+}
+
+const newGetName = user.getName;
+
+user3.getName = newGetName;
+
+//newGetName()
+user3.getName()
