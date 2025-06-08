@@ -56,20 +56,35 @@ button.addEventListener(
 );
 
 
+/**
+ * Д/З
+ * 1) Нужнно понять, куда нужно навести обработчики соыбтий (click, mouseleave, mouseenter)
+ * 2) Тебе нужно отренедерить HTML фрагмент,в котором будут элементы матрицы.
+ *  пример:
+ *  функция вернула матрцу n = 2, matrix = [0, 3], тогда HTML = <div>
+ *    <div>0</div> <div>3</div>
+ *  </div>
+ *  3) вот на те div'ы тебе и нужно навесить обраичики событий, которые мы рассмотерил
+ * @param event
+ */
 
 
-function logSubmit(event) {
+
+function handleInput(event) {
 	const formData = new FormData(event.target);
 	const formProps = Object.fromEntries(formData);
 	const {myNumber} = formProps;
 	const myNumberInt = parseInt(myNumber);
 	const matrix = createMatrix(myNumberInt);
+	/**\
+	 * Здесь ты получаешь данные
+	 */
 	debugger
 	event.preventDefault();
 }
 
 const form = document.getElementById("form");
-form.addEventListener("submit", logSubmit);
+form.addEventListener("submit", handleInput);
 
 
 
