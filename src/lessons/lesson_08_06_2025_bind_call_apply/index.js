@@ -6,10 +6,21 @@ console.log('hello world')
  * @returns {number[][]}
  */
 function createMatrix(n){
+    const matrix = [];
+    let c = 0;
+    for (let i = 1; i <= n; i++) {
+        const row = [];
+        for (let j =1; j <= n * 2; j++){
+            row.push(c);
 
+            c+=3
+
+        }
+        matrix.push(row);
+    }
+    return matrix;
 }
-
-
+createMatrix(3)
 /**
  * n = 3
  * return [
