@@ -20,7 +20,59 @@ function createMatrix(n){
     }
     return matrix;
 }
-createMatrix(3)
+
+
+const button = document.querySelector(".example");
+
+button.addEventListener("click", (event) => {
+	button.style.backgroundColor = 'pink';
+});
+
+
+button.addEventListener("hover", (event) => {
+	button.style.backgroundColor = 'pink';
+});
+
+button.addEventListener(
+	"mouseleave",
+	(event) => {
+		if (button.style.backgroundColor && button.style.backgroundColor === 'pink') {
+			return
+		}
+		event.target.style.backgroundColor = "";
+	},
+	false,
+);
+
+button.addEventListener(
+	"mouseenter",
+	(event) => {
+		if (button.style.backgroundColor && button.style.backgroundColor === 'pink') {
+			return
+		}
+		event.target.style.backgroundColor = "red";
+	},
+	false,
+);
+
+
+
+
+function logSubmit(event) {
+	const formData = new FormData(event.target);
+	const formProps = Object.fromEntries(formData);
+	const {myNumber} = formProps;
+	const myNumberInt = parseInt(myNumber);
+	const matrix = createMatrix(myNumberInt);
+	debugger
+	event.preventDefault();
+}
+
+const form = document.getElementById("form");
+form.addEventListener("submit", logSubmit);
+
+
+
 /**
  * n = 3
  * return [
