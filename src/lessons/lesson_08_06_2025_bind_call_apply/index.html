@@ -10,19 +10,36 @@
 	</script>
 
 	<style>
-		.example {
-				border: 1px solid black;
-				width: 200px;
-				height: 200px;
-				text-align: center;
-				font-size: 32px;
+		body {
+			font-family: sans-serif;
+			padding: 20px;
+		}
 
+		input, button {
+			font-size: 16px;
+			padding: 5px 10px;
+			margin-bottom: 10px;
+		}
+
+		#matrix {
+			display: grid;
+			gap: 1px;
+			margin-top: 10px;
+		}
+		.cell {
+			width: 40px;
+			height: 40px;
+			border: 1px solid black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: white;
 		}
 	</style>
 </head>
 <body>
 
-
+<div>1</div>
 
 <form id="form">
 	<label for="">Введите число</label><input type="number" name="myNumber" id=""/>
@@ -30,10 +47,7 @@
 		Отправить
 	</button>
 </form>
-
-	<button class="example">
-		Нажми на меня!
-	</button>
+<div id="matrix"></div>
 
 </body>
 </html>
