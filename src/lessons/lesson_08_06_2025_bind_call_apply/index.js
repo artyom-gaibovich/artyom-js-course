@@ -1,60 +1,3 @@
-console.log('hello world')
-
-/**
- *
- * @param {number} n
- * @returns {number[][]}
- */
-function createMatrix(n){
-    const matrix = [];
-    let c = 0;
-    for (let i = 1; i <= n; i++) {
-        const row = [];
-        for (let j =1; j <= n * 2; j++){
-            row.push(c);
-
-            c+=3
-
-        }
-        matrix.push(row);
-    }
-    return matrix;
-}
-
-
-const button = document.querySelector(".example");
-
-button.addEventListener("click", (event) => {
-	button.style.backgroundColor = 'pink';
-});
-
-
-button.addEventListener("hover", (event) => {
-	button.style.backgroundColor = 'pink';
-});
-
-button.addEventListener(
-	"mouseleave",
-	(event) => {
-		if (button.style.backgroundColor && button.style.backgroundColor === 'pink') {
-			return
-		}
-		event.target.style.backgroundColor = "";
-	},
-	false,
-);
-
-button.addEventListener(
-	"mouseenter",
-	(event) => {
-		if (button.style.backgroundColor && button.style.backgroundColor === 'pink') {
-			return
-		}
-		event.target.style.backgroundColor = "red";
-	},
-	false,
-);
-
 
 /**
  * Д/З
@@ -70,17 +13,75 @@ button.addEventListener(
 
 
 
+/**
+ *
+ * @param {number} n
+ * @returns {number[][]}
+ */
+function createMatrix(n){
+	const matrix = [];
+	let c = 0;
+	for (let i = 1; i <= n; i++) {
+		const row = [];
+		for (let j =1; j <= n * 2; j++){
+			row.push(c);
+
+			c+=3
+
+		}
+		matrix.push(row);
+	}
+	return matrix;
+}
+
+
+
+
+const root = document.getElementById("root");
+
 function handleInput(event) {
+	root.innerHTML = '';
 	const formData = new FormData(event.target);
 	const formProps = Object.fromEntries(formData);
 	const {myNumber} = formProps;
-	const myNumberInt = parseInt(myNumber);
-	const matrix = createMatrix(myNumberInt);
-	/**\
-	 * Здесь ты получаешь данные
-	 */
-	debugger
+	root.append(MatrixGrid({matrix: createMatrix( parseInt(myNumber))}))
 	event.preventDefault();
+
+
+	const grid = document.querySelector('.grid');
+	grid.addEventListener('click', (event) => {
+		if (event.target.tagName === 'BUTTON') {
+			const button = event.target;
+			button.style.backgroundColor = 'pink';
+		}
+	})
+
+
+	grid.addEventListener("mouseover", (event) => {
+		if (event.target.tagName === 'BUTTON') {
+			const button = event.target;
+
+			if (button.style?.backgroundColor === 'pink') {
+				return;
+			}
+
+			button.style.backgroundColor = 'red';
+		}
+	})
+
+
+	grid.addEventListener("mouseout", (event) => {
+		if (event.target.tagName === 'BUTTON') {
+			const button = event.target;
+
+			if (button.style?.backgroundColor === 'pink') {
+				return;
+			}
+			button.style.backgroundColor = '';
+		}
+	})
+
+
 }
 
 const form = document.getElementById("form");
@@ -88,17 +89,31 @@ form.addEventListener("submit", handleInput);
 
 
 
+
 /**
- * n = 3
- * return [
- * 		[0,3,6,9, 12, 15],
- * 		[18,21,24,27, 30, 33],
- * 		[36,39,42,45, 48, 51],
- * 	]
  *
- * n = 2
- * return [
- * 		[0,3,6,9],
- * 		[12, 15, 18, 21]
- * 	]
+ * @param {number[][]} matrix
+ *
  */
+function MatrixGrid({matrix}) {
+	const grid = document.createElement('div')
+	grid.classList.add("grid")
+	matrix.forEach((currentRow) => {
+		const row = document.createElement('div')
+		row.classList.add("row")
+		currentRow.forEach(el => {
+			const cell = document.createElement('div')
+			const button = document.createElement('button')
+			cell.append(button);
+			button.innerText = el;
+			button.classList.add("cell")
+			row.append(cell);
+		})
+
+		grid.append(row);
+	})
+	return grid;
+}
+
+
+
