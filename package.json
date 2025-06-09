@@ -6,6 +6,7 @@
     "start": "node src/main.js",
     "start:08_12_2024": "node src/lessons/08_12_2024_work_with_html/index.js"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
