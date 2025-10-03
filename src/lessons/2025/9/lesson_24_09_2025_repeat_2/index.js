@@ -87,6 +87,14 @@ const newFruits = fruits.map((fruit) => fruit.toUpperCase())
 
 console.log(newFruits)*/
 
-const newUsers = users.map((user) => `${user.name} ${user.surname}`)
+const filteredUsers = users.filter(function(user) {
+	if (user.children.length > 2) {
+		return true
+	}
+	return false
+})
+
+const filteredUsersArrow = users.filter(user => user.children.length > 2)
+const newUsers = filteredUsersArrow.map((user) => `${user.name} ${user.surname}`)
 
 console.log(newUsers)
