@@ -40,7 +40,6 @@ const user = {
 };
 
 
-
 // на выходе примерное такие данные:  ['Grigori Vasikin 2','Grigori Vasikin 2' ]
 
 const users = [
@@ -81,11 +80,13 @@ const users = [
 		isMarried: false,
 	}];
 
-const newUsers = []
+/*
+const fruits = ['orange', 'apple']
 
-for (const user of users) {
-	const { name, surname } = user;
-	const fullName = `${name} ${surname}`;
-	newUsers.push(fullName);
-}
+const newFruits = fruits.map((fruit) => fruit.toUpperCase())
+
+console.log(newFruits)*/
+
+const newUsers = users.map((user) => `${user.name} ${user.surname}`)
+
 console.log(newUsers)
