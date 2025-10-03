@@ -44,7 +44,7 @@ const user = {
 
 const users = [
 	{
-		name: 'Grigori',
+		name: 'Vasia',
 		surname: 'Vasikin 2',
 		age: 12,
 		children: ['первый',
@@ -107,6 +107,21 @@ console.log(newUsers);
  * Если user не найден, то null вернуть
  */
 
+function findUserByName(users, name){
+
+	const user = users.find(function(user){
+		return user.name.toLowerCase() === name.toLowerCase();
+	})
+	if (!user){
+		return null;
+	}
+	return user;
+}
+console.log(findUserByName(users, 'Vasia'))
+console.log(findUserByName(users, 'VASIA'))
+console.log(findUserByName(users, 'vasia'))
+console.log(findUserByName(users, 'vAsIA'))
+console.log(findUserByName(users, 'vasia1'))
 
 
 const fruits = ['orange', 'apple', 'banana'];
