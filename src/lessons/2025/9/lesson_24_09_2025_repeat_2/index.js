@@ -89,12 +89,45 @@ console.log(newFruits)*/
 
 const filteredUsers = users.filter(function(user) {
 	if (user.children.length > 2) {
-		return true
+		return true;
 	}
-	return false
-})
+	return false;
+});
 
-const filteredUsersArrow = users.filter(user => user.children.length > 2)
-const newUsers = filteredUsersArrow.map((user) => `${user.name} ${user.surname}`)
+const filteredUsersArrow = users.filter(user => user.children.length > 2);
+const newUsers = filteredUsersArrow.map((user) => `${user.name} ${user.surname}`);
 
-console.log(newUsers)
+console.log(newUsers);
+
+
+/**
+ * Задача 5
+ * функция принимает users, и name. Возвращает user,
+ * причем name регистронезависимый !.
+ * Если user не найден, то null вернуть
+ */
+
+
+
+const fruits = ['orange', 'apple', 'banana'];
+
+const foundedFruit = fruits.find(function(fruit) {
+	if (fruit === 'orange') {
+		return true;
+	}
+	return false;
+});
+
+console.log(foundedFruit)
+
+const first = 'super'
+
+const second = 'sUpeR'
+
+const third = 'SUPER'
+
+console.log('//////////////////////////////ПРИВЕНИЕ К ОДНОМУ РЕГИСТРУ///////////////////////////')
+console.log(first.toUpperCase(), first)
+console.log(second.toUpperCase(), second)
+console.log(third.toUpperCase(), third)
+
