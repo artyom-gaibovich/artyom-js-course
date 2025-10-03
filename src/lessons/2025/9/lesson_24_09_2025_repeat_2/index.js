@@ -81,3 +81,11 @@ const users = [
 		isMarried: false,
 	}];
 
+const newUsers = []
+
+for (const user of users) {
+	const { name, surname } = user;
+	const fullName = `${name} ${surname}`;
+	newUsers.push(fullName);
+}
+console.log(newUsers)
