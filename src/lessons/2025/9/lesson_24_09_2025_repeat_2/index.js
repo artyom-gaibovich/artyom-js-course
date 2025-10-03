@@ -107,21 +107,22 @@ console.log(newUsers);
  * Если user не найден, то null вернуть
  */
 
-function findUserByName(users, name){
+function findUserByName(users, name) {
 
-	const user = users.find(function(user){
+	const user = users.find(function(user) {
 		return user.name.toLowerCase() === name.toLowerCase();
-	})
-	if (!user){
+	});
+	if (!user) {
 		return null;
 	}
 	return user;
 }
-console.log(findUserByName(users, 'Vasia'))
-console.log(findUserByName(users, 'VASIA'))
-console.log(findUserByName(users, 'vasia'))
-console.log(findUserByName(users, 'vAsIA'))
-console.log(findUserByName(users, 'vasia1'))
+
+console.log(findUserByName(users, 'Vasia'));
+console.log(findUserByName(users, 'VASIA'));
+console.log(findUserByName(users, 'vasia'));
+console.log(findUserByName(users, 'vAsIA'));
+console.log(findUserByName(users, 'vasia1'));
 
 
 const fruits = ['orange', 'apple', 'banana'];
@@ -133,16 +134,42 @@ const foundedFruit = fruits.find(function(fruit) {
 	return false;
 });
 
-console.log(foundedFruit)
+console.log(foundedFruit);
 
-const first = 'super'
+const first = 'super';
 
-const second = 'sUpeR'
+const second = 'sUpeR';
 
-const third = 'SUPER'
+const third = 'SUPER';
 
-console.log('//////////////////////////////ПРИВЕНИЕ К ОДНОМУ РЕГИСТРУ///////////////////////////')
-console.log(first.toUpperCase(), first)
-console.log(second.toUpperCase(), second)
-console.log(third.toUpperCase(), third)
+console.log('//////////////////////////////ПРИВЕНИЕ К ОДНОМУ РЕГИСТРУ///////////////////////////');
+console.log(first.toUpperCase(), first);
+console.log(second.toUpperCase(), second);
+console.log(third.toUpperCase(), third);
+console.log('//////////////////////////////––––––––––––––––––––––––––––––––///////////////////////////');
+
+
+console.log('/////////////////////////////////////////////////////////');
+
+const somePeople = [
+	{ name: 'Vasya', age: 30 },
+	{ name: 'Artik', age: 60 },
+	{ name: 'John', age: 15 },
+	{ name: 'Elena', age: 45 },
+	{ name: 'Venya', age: 12 },
+];
+
+const somePeopleSorted = [...somePeople].sort((function(a, b) {
+	return a.age - b.age;
+	//return b.age - a.age; (по возрастанию, DESC)
+	//return a.age - b.age; (по возрастанию, ASC)
+
+
+	//[...somePeople] это копия массива
+}));
+console.log(somePeopleSorted);
+console.log(somePeople);
+console.log('//////////////////////////////––––––––––––––––––––––––––––––––///////////////////////////');
+
+
 
