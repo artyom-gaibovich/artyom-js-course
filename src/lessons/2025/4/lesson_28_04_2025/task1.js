@@ -36,3 +36,9 @@ const userData = users.map(user => {
     return {fullname: user.name +" "+ user.surname, childNum: user.child.length};
 } )
 console.log(userData);
+
+function getUsersWithChildren(users) {
+    return [...users].sort(function (a, b) {return a.child.length - b.child.length});
+
+}
+console.log(getUsersWithChildren(users));

@@ -161,7 +161,7 @@ const somePeople = [
 
 const somePeopleSorted = [...somePeople].sort((function(a, b) {
 	return a.age - b.age;
-	//return b.age - a.age; (по возрастанию, DESC)
+	//return b.age - a.age; (по убыванию, DESC)
 	//return a.age - b.age; (по возрастанию, ASC)
 
 
@@ -170,6 +170,15 @@ const somePeopleSorted = [...somePeople].sort((function(a, b) {
 console.log(somePeopleSorted);
 console.log(somePeople);
 console.log('//////////////////////////////––––––––––––––––––––––––––––––––///////////////////////////');
+
+const obj = {a: 10, b: 20, c: 'hello'}
+let sum = 0
+for (let key in obj) {
+	if (typeof obj[key] === "number"){
+		sum = sum + obj[key];
+	}
+}
+console.log(sum);
 
 
 
