@@ -56,8 +56,6 @@ const myAdd = calculator.add.bind(calculator);
 myAdd()
 
 
-
-
 calculator.add.call(calculatorTiny, 100)
 calculator.add.apply(calculatorTiny, [100])
 console.log(calculatorTiny);
