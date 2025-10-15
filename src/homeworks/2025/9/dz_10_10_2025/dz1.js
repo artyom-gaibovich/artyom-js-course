@@ -41,21 +41,30 @@ const calculatorTiny = {
 
 }
 
+const add = calculator.add.bind(calculatorTiny);
 
-/**
- * call
- * apply
- *
- * bind
- *
- *
- * (позволяют задать чему будет равно this при вызове функции)
- */
+add(29)
 
-const myAdd = calculator.add.bind(calculator);
-myAdd()
-
-
-calculator.add.call(calculatorTiny, 100)
-calculator.add.apply(calculatorTiny, [100])
 console.log(calculatorTiny);
+calculator.add.call(calculatorTiny, 50);
+calculator.add.apply(calculatorTiny, [50]);
+
+console.log(calculatorTiny);
+
+function createCounter(){
+	let counter = 0;
+	return function (){
+		counter++;
+		console.log(counter)
+	}
+}
+const childFunc = createCounter()
+childFunc()
+childFunc()
+childFunc()
+
+const childFunc2 = createCounter()
+
+childFunc2()
+childFunc2()
+childFunc2()
