@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+</head>
+<body>
+
+
+<!--<div id="first">
+
+</div>
+
+
+<div class="second">
+
+</div>
+
+<button>
+	Кнопка
+</button>
+
+
+<div class="some-div">
+	<button>
+		Кнопка внутри контейнера
+	</button>
+</div>-->
+
+
+<div class="panel">
+
+</div>
+
+<form action="#">
+
+	<label for="email">
+	Email
+	</label>
+	<input class="input" id="email"  />
+
+
+</form>
+
+
+<div id="text">
+
+</div>
+<button class="button">Click me</button>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const input = document.querySelector('.input');
+		const panel = document.querySelector('.panel');
+		const button = document.querySelector('.button');
+
+
+		button.addEventListener('click', () => {
+			const value = input.value;
+			console.log(value)
+		})
+
+
+
+
+	});
+
+
+
+</script>
+
+
+<!--
+<button class="button" onclick="handleClick()">Click me</button>
+-->
+
+</body>
+</html>
