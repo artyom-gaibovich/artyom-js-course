@@ -6,7 +6,7 @@
     "start": "node src/main.js",
     "start:08_12_2024": "node src/lessons/08_12_2024_work_with_html/index.js"
   },
-  "type": "module",
+  "type": "commonjs",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -15,10 +15,14 @@
     "nodemon": "^3.1.7"
   },
   "dependencies": {
+    "cheerio": "^1.1.0",
     "cookie-parser": "^1.4.7",
     "event-loop-inspector": "^1.2.2",
+    "express": "^5.1.0",
+    "jsdom": "^27.0.1",
     "json-over-tcp": "^0.3.2",
     "mkdirp": "^3.0.1",
+    "node-html-parser": "^7.0.1",
     "request": "^2.88.2",
     "seedrandom": "^3.0.5"
   }

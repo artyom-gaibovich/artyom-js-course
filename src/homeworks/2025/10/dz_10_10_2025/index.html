@@ -8,14 +8,20 @@
 	<title>Document</title>
 </head>
 <body>
-<button id="btn">Кнопка</button>
+
+
+<div id="container">
+
+</div>
 
 <script defer>
-	const btn = document.getElementById("btn");
-	btn.addEventListener('click', function() {
-		debugger
-		console.log(this)
-	})
+	const container = document.getElementById('container');
+
+	const h1 = document.createElement('h1');
+	h1.innerText = 'Заголовок 1'
+	container.appendChild(h1);
+
+
 
 </script>
 
