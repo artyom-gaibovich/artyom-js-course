@@ -28,6 +28,6 @@ const newMyName = `Игорь Алексеевич "Лысый" Иванов`;
 const name = ``;
 const surname = ``;
 
-const emojiiString = `🫁Vasilinka`;
-🫁
+const emojiiString = `Vasilinka`;
+
 console.log(emojiiString[2]);
