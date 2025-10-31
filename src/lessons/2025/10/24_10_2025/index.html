@@ -6,18 +6,79 @@
 				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
+	<style>
+		#results {
+			background: #111;
+			color: #fff;
+			text-align: right;
+			padding: 15px;
+			border-radius: 10px;
+			margin-bottom: 20px;
+			font-size: 24px;
+		}
+		body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+		button{
+			padding: 15px;
+			width: 50px;
+			font-size: 18px;
+			border: none;
+			border-radius: 10px;
+			cursor: pointer;
+
+		}
+
+		.calculator {
+			background: #222;
+			padding: 20px;
+			border-radius: 20px;
+			width: 260px;
+		}
+		.buttons-numbers{
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 10px;
+			margin-bottom: 10px;
+		}
+		.buttons-operators{
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 10px;
+		}
+	</style>
 </head>
 <body>
 
 
-<div id="results">
 
+
+
+<div class="calculator">
+	<div id="results"></div>
+	<div class="buttons-numbers">
+		<button onclick="addNumber(1)">1</button>
+		<button onclick="addNumber(2)">2</button>
+		<button onclick="addNumber(3)">3</button>
+		<button onclick="addNumber(4)">4</button>
+		<button onclick="addNumber(5)">5</button>
+		<button onclick="addNumber(6)">6</button>
+		<button onclick="addNumber(7)">7</button>
+		<button onclick="addNumber(8)">8</button>
+		<button onclick="addNumber(9)">9</button>
+
+	</div>
+	<div class="buttons-operators">
+		<button onclick="addNumber(0)">0</button>
+		<button onclick="clearDisplay()">C</button>
+		<button onclick="addOperator('+')">+</button>
+		<button onclick="addOperator('-')">-</button>
+		<button onclick="calculate()">=</button>
+	</div>
 </div>
-<button onclick="setState(1)">1</button>
-<button onclick="setState(2)">2</button>
-<button onclick="setState(3)">3</button>
-
-
 <script defer>
 
 	let result = document.querySelector('#results');
@@ -33,7 +94,13 @@
 	 */
 	function addNumber(number) {
 
-
+		if (currInputValue==="0"|| isDisplayShouldReset === true){
+			currInputValue = number.toString();
+			isDisplayShouldReset = false;
+		}
+		else{
+			currInputValue+=number.toString();
+		}
 		updateDisplay();
 	}
 
@@ -42,16 +109,34 @@
 	 * Кнопка +, -
 	 */
 	function addOperator(op) {
-
-
+		if (operator !== "" || isDisplayShouldReset === false){
+			calculate()
+		}
+		prevInputValue = currInputValue;
+		operator = op;
+		isDisplayShouldReset = true;
 	}
 
 	/**
 	 * Кнопка =
 	 */
 	function calculate() {
-
-
+		if (operator===""||isDisplayShouldReset === true){
+			return
+		}
+		let curr = parseFloat(currInputValue);
+		let prev = parseFloat(prevInputValue);
+		let res = 0;
+		if (operator === '+'){
+			res = curr + prev;
+		}
+		if(operator === '-'){
+			res = prev - curr;
+		}
+		currInputValue = res.toString();
+		prevInputValue = "";
+		operator = "";
+		isDisplayShouldReset = true;
 		updateDisplay();
 	}
 
@@ -67,7 +152,10 @@
 	 * Кнопка C (очистить дисплей)
 	 */
 	function clearDisplay() {
-
+		currInputValue = '0';
+		prevInputValue = '';
+		operator = '';
+		isDisplayShouldReset = false;
 
 		updateDisplay();
 	}
