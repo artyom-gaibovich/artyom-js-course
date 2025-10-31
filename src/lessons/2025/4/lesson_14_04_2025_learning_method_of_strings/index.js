@@ -4,7 +4,7 @@
 const myArray = new Array(1, 2, 3, 4, 5);
 
 const emptyArray = new Array(10);
-emptyArray.fill(1, 5, 9);
+emptyArray.fill(1, 5, 10);
 
 const myArrayUseFromMethod = Array.from({ length: 4 }, (elem, index) => index);
 console.log(myArrayUseFromMethod);

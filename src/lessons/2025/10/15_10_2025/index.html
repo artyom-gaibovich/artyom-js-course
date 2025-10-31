@@ -32,9 +32,9 @@
 </div>-->
 
 
-<div class="panel">
+<h1 class="panel">
 
-</div>
+</h1>
 
 <form action="#">
 
@@ -58,10 +58,10 @@
 		const panel = document.querySelector('.panel');
 		const button = document.querySelector('.button');
 
-
 		button.addEventListener('click', () => {
 			const value = input.value;
 			console.log(value)
+			panel.innerText = value;
 		})
 
 

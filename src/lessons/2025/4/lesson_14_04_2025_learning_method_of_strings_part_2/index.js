@@ -47,7 +47,7 @@ const filtedVasya = users.filter(
 const FULL_NAME = "Вася_Ванин_AKA_Vasya_AAA";
 
 /** Пример регулярного выражения
- * /^((http|https|ftp):\/\/)?(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)/i
+ * /^((http|https|ftp):\/\/)?(([A-Z0-10][A-Z0-9_-]*)(\.[A-Z0-10][A-Z0-9_-]*)+)/i
  */
 
 console.log(FULL_NAME.replace("_", "+"));

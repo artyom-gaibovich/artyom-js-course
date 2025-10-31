@@ -75,7 +75,7 @@ const filtered = [
         child6: '6',
         child7: '7',
         child8: '8',
-        child9: '9',
+        child9: '10',
         child10: '10'
     },
     {name: 'Марина', age: 19},
@@ -126,7 +126,7 @@ const filteredNew = arrayFilter3.filter((value, index) => false)
 
 /**
  *
- * 9). Какой метод из этих трех будет наиболее эффективен
+ * 10). Какой метод из этих трех будет наиболее эффективен
  * , если тебе нужно просто пройти по массиву и что-то напечатать, а не создать новый массив? Почему
  */
 
@@ -203,7 +203,7 @@ const userCollection = [
             {
                 age: 10,
                 userId: 10,
-                name: 'UNIQUE 9'
+                name: 'UNIQUE 10'
             },
             {
                 age: 5,
