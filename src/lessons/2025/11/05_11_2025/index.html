@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+			* {
+					margin: 0;
+					padding: 0;
+					box-sizing: border-box;
+			}
+		.red {
+				color: red;
+		}
+		.green {
+				color: green;
+    }
+		.blue {
+				color: blue;
+		}
+
+		.h1 {
+				font-size: 62px;
+		}
+
+		.title {
+				font-size: 40px;
+				background-color: aqua;
+		}
+
+	</style>
+</head>
+<body>
+
+<h1 class="title red" id="primary"
+		onclick="show()">
+	Hello World!
+</h1>
+
+
+<div id='user' user-id="1">
+</div>
+<div id='user2' user-id="2">
+</div>
+<div id='user3' user-id="3">
+</div>
+<script>
+	function show() {
+		console.log("Hello World!");
+	}
+
+	//работа со стилями (атрибут class)
+/*	const title = document.querySelector('.title');
+	title.classList.add('red');
+	title.classList.add('blue');
+	title.classList.add('h1');
+
+	title.classList.remove('blue');
+	title.classList.remove('red');
+	title.classList.remove('h1');
+
+	title.textContent = '2';
+	*/
+
+
+	const title = document.querySelector('.title');
+	//получение атрибута
+	const className = title.getAttribute('class');
+
+	//установка атррибута
+	title.setAttribute('class', '');
+
+	//кастомные атрибуты
+
+	const users = ['user1', 'user2', 'user3']
+	const user = document.querySelector('#user2');
+	const idx = user.getAttribute('user-id')
+
+	console.log(Number(idx));
+	console.log((idx));
+
+	//
+	/*
+	Задание:
+
+	Создайте элемент <div> с классом "message".
+		С помощью JavaScript:
+		получите его класс и выведите в консоль;
+		установите новый атрибут data-status со значением "active";
+		выведите значение data-status в консоль;
+		преобразуйте значение data-status в строку "inactive" и снова выведите результат.
+	 */
+</script>
+</body>
+</html>
