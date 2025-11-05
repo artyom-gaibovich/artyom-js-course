@@ -93,6 +93,22 @@
 		выведите значение data-status в консоль;
 		преобразуйте значение data-status в строку "inactive" и снова выведите результат.
 	 */
+	const messageDiv = document.createElement('div');
+	messageDiv.textContent = 'Hello world!';
+	messageDiv.className = 'message';
+	const messageDivClass = messageDiv.getAttribute('class');
+	console.log('Класс элемента', messageDivClass);
+
+
+	messageDiv.setAttribute("data-status", 'active');
+	const messageDivClassActive = messageDiv.getAttribute('data-status');
+	console.log(messageDivClassActive)
+	messageDiv.setAttribute("data-status", 'inactive');
+	const messageDivClassInActive = messageDiv.getAttribute('data-status');
+	console.log(messageDivClassInActive)
+
+	document.body.appendChild(messageDiv);
+
 </script>
 </body>
 </html>
