@@ -96,3 +96,26 @@ console.log(setObjects);
 
  */
 
+fruitArr = ["apple", "banana", "apple", "orange", "banana"] ;
+
+fruitSet= new Set(fruitArr);
+console.log(fruitSet.size);
+
+progArr = ["JS", "HTML", "CSS", "JS"];
+
+progSet = new Set(progArr);
+
+progSet.delete("HTML");
+console.log(progSet.has("React"));
+console.log(progSet)
+
+function getUnique(arr){
+	return [...new Set(arr)];
+}
+console.log(getUnique(progArr))
+
+const strH = "hello"
+
+helloSet = new Set(strH);
+helloArr = [...new Set(helloSet)];
+console.log(helloArr);
