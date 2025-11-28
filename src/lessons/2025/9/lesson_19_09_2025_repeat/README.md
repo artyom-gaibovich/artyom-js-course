@@ -42,13 +42,13 @@
     *   Замыкания (Closure).
     *   Поднятие (Hoisting) `var` и function declaration.
 
-8.  **Работа с DOM (`lesson_08_06_2025_bind_call_apply/index.js`)**
+8.  **Работа с DOM (`lesson_08_06_2025_bind_call_apply/timer-not-wait.js`)**
     *   Поиск элементов: `getElementById`, `querySelector`.
     *   Обработка событий: `addEventListener`.
     *   Создание элементов: `createElement`, `append`.
     *   Манипуляции с классами: `classList`.
 
-9.  **Прочее (`lesson_08_12_2025/index.js`)**
+9.  **Прочее (`lesson_08_12_2025/timer-not-wait.js`)**
     *   Структуры данных: `Map`, `Set`.
 
 ---
