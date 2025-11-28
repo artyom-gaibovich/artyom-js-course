@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Вход в систему</h1>
+
+  <form id="loginForm" class="form-group" onsubmit="submitForm()">
+    <div class="form-group">
+      <label for="username">Имя пользователя:</label>
+      <input type="text" id="username" placeholder="Введите ваше имя"  >
+    </div>
+    <div class="form-group">
+      <label for="password">Пароль:</label>
+      <input type="password" id="password" placeholder="Введите пароль" >
+    </div>
+    <button type="submit">Войти</button>
+  </form>
+
+  <div id="greetingContainer" class="greeting-container">
+    <div id="greeting" class="greeting"></div>
+    <button id="logoutBtn" class="logout-btn" onclick="logOut()">Выйти</button>
+  </div>
+
+</div>
+
+
+<script>
+
+  const user = {
+    name: 'John',
+    login: 'john',
+    password: 1231,
+    isMarried: true
+  }
+
+
+  const jsonString = "{\"name\":\"John\",\"login\":\"john\",\"password\":1231,\"isMarried\":true}"
+
+  const DecodedUser = JSON.stringify(user)
+
+  const decodedUserJSON = JSON.parse(jsonString)
+
+  const loginForm = document.getElementById('loginForm');
+  const usernameInput = document.getElementById('username');
+  const greetingContainer = document.getElementById('greetingContainer');
+  const greeting = document.getElementById('greeting');
+  const logoutBtn = document.getElementById('logoutBtn');
+  function submitForm(event){
+    const inputValue = usernameInput.value;
+    localStorage.setItem("username", inputValue);
+
+  }
+  function logOut(){
+    localStorage.removeItem("username");
+    location.reload();
+
+  }
+
+  function showGreeting() {
+    const username = localStorage.getItem('username');
+    if (username) {
+      greeting.textContent = `Привет, ${username}!`;
+    }
+  }
+  showGreeting()
+
+</script>
+</body>
+</html>

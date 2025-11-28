@@ -1,7 +1,7 @@
 const weatherMap = new Map();
 
 
-// установка значеничя мапы
+// установка значения мапы
 const map = weatherMap
 	.set('London', '10')
 	.set('USA', '10');
@@ -91,4 +91,4 @@ mapNew.set([1, 2, 3], "array123123");
 mapNew.set([1, 2, 3], "array123123");
 
 
-mapNew
+
