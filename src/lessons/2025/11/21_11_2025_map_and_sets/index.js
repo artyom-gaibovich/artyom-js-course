@@ -72,7 +72,7 @@ const uniqueValues = [...new Set(['a', 'a', 'b', 1])];
  */
 
 const obj1 = { a: 1 };
-const obj2 = { a: 1 }
+const obj2 =  {a: 1 }
 
 const setObjects = new Set([obj1, obj2]);
 console.log(setObjects);
