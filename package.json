@@ -24,6 +24,7 @@
     "mkdirp": "^3.0.1",
     "node-html-parser": "^7.0.1",
     "request": "^2.88.2",
-    "seedrandom": "^3.0.5"
+    "seedrandom": "^3.0.5",
+    "uuidv4": "^6.2.13"
   }
 }
