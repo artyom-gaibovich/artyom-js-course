@@ -10,9 +10,7 @@ const user1 = {
 function User (name, password ) {
 	this.name = name;
 	this.password  = password;
-/*	this.getAge = function () {
-		console.log('From OBJECT', this.name)
-	}*/
+
 }
 
 User.prototype.getName = function () {
@@ -58,5 +56,6 @@ userNew2.getName();
 
 // проверка:
 console.log(User.prototype.__proto__);
+
 
 
