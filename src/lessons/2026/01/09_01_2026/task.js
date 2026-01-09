@@ -17,7 +17,7 @@ class LightSaber{
         this.dmg = dmg;
     }
     attack(enemy){
-        enemy.takeDamage(this.dmg);
+        enemy?.takeDamage(this.dmg);
     }
 }
 /*Сделать класс рыцаря, который в 60% случаев не получает*/
@@ -40,8 +40,25 @@ class Knight extends Enemy {
     }
 }
 
+
+class KnightJedi extends Enemy {
+    constructor(health) {
+        super(health);
+
+    }
+    takeDamage(amount){
+        this.health -= amount * 100;
+        if(this.health < 0){
+            this.health = 0;
+        }
+        console.log(`Jedi health ${this.health}`);
+    }
+}
+
+
 const enemy = new Enemy(100);
 const knight = new Knight(100);
+const knightJedi = new Knight(100);
 const saber = new LightSaber(20);
 
 console.log("Враг атакует!");
@@ -49,3 +66,20 @@ saber.attack(enemy);
 
 console.log("Рыцарь атакует!");
 saber.attack(knight);
+
+
+saber.attack({})
+
+
+
+// 1) ад-хок полиморфизм
+// 1 + 2 = 3
+// "1" + "2" = "12"
+
+
+// 2) параметрический полиморфизм
+
+console.log("hello world")
+console.log(1393939321)
+console.log(true)
+console.log({})
