@@ -5,10 +5,16 @@ request.send()
 request.addEventListener("load", function() {
 	const response = this.responseText
 	const parsedJson = JSON.parse(response)
-	let count = 0
-	for (let item of parsedJson) {
-		count += item.id;
-	}
-	console.log(count)
+	const firstElemId = parsedJson[0].id
+
+	const secondRequest = new XMLHttpRequest()
+	secondRequest.open("GET", `https://jsonplaceholder.typicode.com/todos/${firstElemId}`)
+	secondRequest.send()
+	secondRequest.addEventListener("load", function() {
+		const response = this.responseText
+		const parsedJson = JSON.parse(response)
+		console.log(parsedJson)
+
+	})
 })
 
