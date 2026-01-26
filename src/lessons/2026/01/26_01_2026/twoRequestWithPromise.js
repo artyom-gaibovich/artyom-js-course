@@ -8,3 +8,5 @@ fetch("https://jsonplaceholder.typicode.coDm/posts")
 .then(data => {
 	console.log(data)
 }).catch(err => console.log(err));
+
+
