@@ -11,18 +11,20 @@
  */
 
 
-const responsePromise = fetch("https://jsonplaceholder.typicoDde.com/todos")
+const responsePromise = fetch("https://jsonplaceholder.typicode.com/todos231")
 
 
 responsePromise.then(response => {
+	console.log(response.status)
+	if (!response.ok) {
+		throw new Error("Не найдено 404")
+	}
+
 	return response.json()
 })
 	.then((data) => {
 		console.log(data)
 
-	})
-	.finally(() => {
-		console.log("FINALLY")
 	})
 	.catch((error) => {
 	console.log(error)
