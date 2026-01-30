@@ -1,9 +1,6 @@
 
 const myPromise = new Promise((resolve, reject) => {
-	setTimeout(() => {
-		resolve("Успешно завершен");
-		//reject("Неверно завершен")
-	}, 1000)
+	reject("OK")
 })
 
 

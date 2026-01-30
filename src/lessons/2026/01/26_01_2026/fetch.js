@@ -11,11 +11,20 @@
  */
 
 
-const responsePromise = fetch("https://jsonplaceholder.typicode.com/todos")
-	.then(response => response.json())
+const responsePromise = fetch("https://jsonplaceholder.typicoDde.com/todos")
+
+
+responsePromise.then(response => {
+	return response.json()
+})
 	.then((data) => {
-	console.log(data)
-}).catch((error) => {
+		console.log(data)
+
+	})
+	.finally(() => {
+		console.log("FINALLY")
+	})
+	.catch((error) => {
 	console.log(error)
 })
 
