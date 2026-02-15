@@ -13,7 +13,7 @@
  *
  * по широте и долготе выполнить fetch к API обратного геокодирования
  *
- * API: https://api.bigdatacloud.net/data/reverse-geocode-client?latitude={crd.latitude}&longitude={crd.longitude}&localityLanguage=ru
+ * API: https://api.bigdatacloud.net/data/reverse-geocode-client?latitude={crd.latitude}&longitude={}&localityLanguage=ru
  *
  * получить данные и вывести название города в консоль
  *
@@ -23,26 +23,24 @@
 
 
 
+/*
+var options = {
+	enableHighAccuracy: true,
+	timeout: 5000,
+	maximumAge: 0,
+};
 
-/**
- * const options = {
- *   enableHighAccuracy: true,
- *   timeout: 25000,
- *   maximumAge: 0,
- * };
- *
- * function success(pos) {
- *   var crd = pos.coords;
- *
- *   console.log("Ваше текущее местоположение:");
- *   console.log(`Широта: ${crd.latitude}`);
- *   console.log(`Долгота: ${crd.longitude}`);
- *   console.log(`Плюс-минус ${crd.accuracy} метров.`);
- * }
- *
- * function error(err) {
- *   console.warn(`ERROR(${err.code}): ${err.message}`);
- * }
- *
- * navigator.geolocation.getCurrentPosition(success, error, options);
- */
+function success(pos) {
+	var crd = pos.coords;
+
+	console.log("Ваше текущее местоположение:");
+	console.log(`Широта: ${crd.latitude}`);
+	console.log(`Долгота: ${crd.longitude}`);
+	console.log(`Плюс-минус ${crd.accuracy} метров.`);
+}
+
+function error(err) {
+	console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options);*/
